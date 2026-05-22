@@ -1,4 +1,6 @@
+# pyrefly: ignore [missing-import]
 import streamlit as st
+# pyrefly: ignore [missing-import]
 from groq import Groq
 
 # Configuration de la page
@@ -71,19 +73,19 @@ def next_level():
 # Essayer de récupérer la clé API depuis les secrets (Streamlit Cloud)
 try:
     api_key = st.secrets["GROQ_API_KEY"]
+    has_secrets_key = True
 except KeyError:
     api_key = None
+    has_secrets_key = False
 
 # Sidebar config
 with st.sidebar:
-    st.header("🔑 Configuration")
-    if not api_key:
+    if not has_secrets_key:
+        st.header("🔑 Configuration")
         api_key = st.text_input("Clé API Groq :", type="password")
         st.markdown("[Obtenir une clé API gratuite](https://console.groq.com/keys)")
-    else:
-        st.success("✅ Clé API configurée (via secrets)")
+        st.divider()
     
-    st.divider()
     display_level = min(st.session_state.level, 3)
     st.write(f"📊 **Progression : Niveau {display_level} / 3**")
     if st.button("🔄 Recommencer tout"):
