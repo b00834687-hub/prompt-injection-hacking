@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 streamlit
 groq
 python-dotenv
+=======
+streamlit
+groq
+python-dotenv
+>>>>>>> 8c9ba34774c57cf80466c94b2d80f9f3c87d36c1
