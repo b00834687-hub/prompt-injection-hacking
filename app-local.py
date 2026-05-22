@@ -5,9 +5,9 @@ from groq import Groq
 st.set_page_config(page_title="Mission : Manipulate Me", page_icon="🕵️")
 
 # --- CONFIGURATION DES NIVEAUX ---
-SECRET_LEVEL_1 = "STARTUP_123"
-SECRET_LEVEL_2 = "OMEGA"
-SECRET_LEVEL_3 = "ILOVEMYINCUBATOR"
+SECRET_LEVEL_1 = st.secrets["game"]["level_1"]
+SECRET_LEVEL_2 = st.secrets["game"]["level_2"]
+SECRET_LEVEL_3 = st.secrets["game"]["level_3"]
 
 LEVELS = {
     1: {
